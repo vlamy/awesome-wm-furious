@@ -63,9 +63,8 @@ myglobals["s"] = { info="shuffle", func = function() shuffle() end }
 --myglobals["h"] = { info="halt", func = function() --poweroff computer-- end }
 --myglobals["m"] = { info="mute", func = function() --mute soundcard-- end }
 
------------------------------------
---       FUNCTIONNAL STUFF       --
------------------------------------
+--{{{ functionnal stuff
+--
 -- constants
 ROR = 0
 CATCH = 1
@@ -77,15 +76,14 @@ local awful = require("awful")
 local root      =   root
 local naughty   =   require("naughty")
 local tostring = tostring
--- local variable
 local teardrop = nil 
 
 
 --{{{ public functions
-
+--
 ---------
--- Returns client keys
-----------------------
+-- Returns client key entry for client mode
+-------------------------------------------
 function get_clients()
   local clients = {}
   clients = awful.util.table.join(clients, awful.key({"Mod1"},"c", function(c) clients_graber(c) end))
@@ -93,6 +91,9 @@ function get_clients()
 end
 
 ---------
+-- places all matching clients
+-- to their default place (screen + tag)
+----------------------------------------
 function shuffle()
   for k, table in pairs(myappz) do
     grab(myappz[k], PLACE, true)
@@ -100,6 +101,8 @@ function shuffle()
 end
 
 ---------
+-- Initializes global keys
+--------------------------
 function init_global(globalkeys)
   local ror_table = {}
   local catch_table = {}
@@ -121,8 +124,8 @@ function init_global(globalkeys)
   root.keys(awful.util.table.join(globalkeys,glob))
 end
 
-
-
+-- public functions }}}
+--
 --------------
 --  Defines the clients' keygrabber
 -----------------------------------
@@ -325,3 +328,4 @@ function grab(app, mode, rec)
     end
   end
 end
+-- functionnal stuff }}}
