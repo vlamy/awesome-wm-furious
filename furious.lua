@@ -21,6 +21,13 @@
 -- @release 1.0
 -- (tested with awesome 3.5)
 ---------------------------------
+--
+-- Lua environment
+local pairs     =   pairs
+local awful = require("awful")
+local root      =   root
+local naughty   =   require("naughty")
+local tostring = tostring
 
 ----------
 -- Custom application definition
@@ -70,12 +77,7 @@ ROR = 0
 CATCH = 1
 DROP = 2
 PLACE = 3
--- Lua environment
-local pairs     =   pairs
-local awful = require("awful")
-local root      =   root
-local naughty   =   require("naughty")
-local tostring = tostring
+
 local teardrop = nil 
 
 
@@ -84,7 +86,7 @@ local teardrop = nil
 ---------
 -- Returns client key entry for client mode
 -------------------------------------------
-function get_clients()
+function get_furious_clientkeys()
   local clients = {}
   clients = awful.util.table.join(clients, awful.key({"Mod1"},"c", function(c) clients_graber(c) end))
   return clients
@@ -103,7 +105,7 @@ end
 ---------
 -- Initializes global keys
 --------------------------
-function init_global(globalkeys)
+function furious_init_global(globalkeys)
   local ror_table = {}
   local catch_table = {}
   local drop_table = {}
