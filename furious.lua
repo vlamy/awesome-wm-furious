@@ -29,6 +29,14 @@ local root      =   root
 local naughty   =   require("naughty")
 local tostring = tostring
 
+-- Custom keys variables
+local modkey = "Mod1"
+local ror_key = "t"
+local catch_key = "s"
+local drop_key = "r"
+local client_key = "c"
+local general_key = "'"
+
 ----------
 -- Custom application definition
 --------------------------------
@@ -88,7 +96,7 @@ local teardrop = nil
 -------------------------------------------
 function get_furious_clientkeys()
   local clients = {}
-  clients = awful.util.table.join(clients, awful.key({"Mod1"},"c", function(c) clients_graber(c) end))
+  clients = awful.util.table.join(clients, awful.key({modkey},client_key, function(c) clients_graber(c) end))
   return clients
 end
 
@@ -118,10 +126,10 @@ function furious_init_global(globalkeys)
     drop_table[","] = {info = "release teardrop", func = function() release_teardrop() end}
   end
 
-  glob = awful.util.table.join(glob, awful.key({"Mod1"},"t", function() global_keygraber("ROR", ror_table) end),
-  awful.key({"Mod1",},"s", function() global_keygraber("Catch", catch_table) end),
-  awful.key({"Mod1",},"'", function() global_keygraber("Genaral", myglobals) end),
-  awful.key({"Mod1"},"r", function() global_keygraber("drop", drop_table) end))
+  glob = awful.util.table.join(glob, awful.key({modkey},ror_key, function() global_keygraber("ROR", ror_table) end),
+  awful.key({modkey},catch_key, function() global_keygraber("Catch", catch_table) end),
+  awful.key({modkey},general_key, function() global_keygraber("Genaral", myglobals) end),
+  awful.key({modkey},drop_key, function() global_keygraber("drop", drop_table) end))
 
   root.keys(awful.util.table.join(globalkeys,glob))
 end
