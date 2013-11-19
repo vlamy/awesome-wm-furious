@@ -3,6 +3,8 @@ awesome-wm-furious
 
 Awesome WM script for modal client (applications' windows) management.
 
+*screencast and complete doc comming soon*
+
 ## Features
 * modal keygrabber
 * cacth client mode (bring to focused tag)
@@ -29,21 +31,23 @@ myappz["f"] = { info="firefox", cmd="firefox", tag="1", screen=1, match="Firefox
 ```
 
 ### In the rc.lua
-A sample `rc.lua` file is available for demo here. It modified the default `rc.lua` file with minimum requirements to make furious work.
+A sample `rc.lua` file is available for demo [here](https://github.com/Vlamy/awesome-wm-furious/blob/master/rc.lua). It is a slicy modified version of the default `rc.lua` file, with minimum requirements to make furious work.
 
-Add furious lib dependency :
+More precisely, starting from classic `rc.lua`, you have to follow these steps to make furious work :
+
+1. Add furious lib dependency :
 ```lua
 require("furious")
 ```
 
-Then switch global keys setting from classic to furious one :
+1. Then switch global keys setting from classic to furious one :
 ```lua
 -- Set keys
 furious_init_global(globalkeys)
 --root.keys(globalkeys) no more required
 ```
 
-Finally, add furious client keys to rc clientkeys :
+1. Finally, add furious client keys to rc clientkeys :
 ```lua
 clientkeys = awful.util.table.join(
     get_clientkeys(),
