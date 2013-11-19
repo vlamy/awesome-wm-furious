@@ -28,3 +28,26 @@ myappz["f"] = { info="firefox", cmd="firefox", tag="1", screen=1, match="Firefox
 
 ```
 
+### In the rc.lua
+A sample `rc.lua` file is available for demo here. It modified the default `rc.lua` file with minimum requirements to make furious work.
+
+Add furious lib dependency :
+```lua
+require("furious")
+```
+
+Then switch global keys setting from classic to furious one :
+```lua
+-- Set keys
+furious_init_global(globalkeys)
+--root.keys(globalkeys) no more required
+```
+
+Finally, add furious client keys to rc clientkeys :
+```lua
+clientkeys = awful.util.table.join(
+    get_clientkeys(),
+    ................. 
+-- }}}
+```
+
