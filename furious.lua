@@ -126,10 +126,10 @@ function furious_init_global(globalkeys)
     drop_table[","] = {info = "release teardrop", func = function() release_teardrop() end}
   end
 
-  glob = awful.util.table.join(glob, awful.key({modkey},ror_key, function() global_keygraber("ROR", ror_table) end),
-  awful.key({modkey},catch_key, function() global_keygraber("Catch", catch_table) end),
-  awful.key({modkey},general_key, function() global_keygraber("Genaral", myglobals) end),
-  awful.key({modkey},drop_key, function() global_keygraber("drop", drop_table) end))
+  glob = awful.util.table.join(glob, awful.key({modkey,},ror_key, function() global_keygraber("ROR", ror_table) end),
+  awful.key({modkey,},catch_key, function() global_keygraber("Catch", catch_table) end),
+  awful.key({modkey,},general_key, function() global_keygraber("Genaral", myglobals) end),
+  awful.key({modkey,},drop_key, function() global_keygraber("drop", drop_table) end))
 
   root.keys(awful.util.table.join(globalkeys,glob))
 end

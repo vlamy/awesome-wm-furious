@@ -282,7 +282,6 @@ globalkeys = awful.util.table.join(
 )
 
 
-furious_init_global(globalkeys)
 
 clientkeys = awful.util.table.join(
     get_furious_clientkeys(),
@@ -352,7 +351,8 @@ clientbuttons = awful.util.table.join(
     awful.button({ modkey }, 3, awful.mouse.client.resize))
 
 -- Set keys
-root.keys(globalkeys)
+furious_init_global(globalkeys)
+--root.keys(globalkeys)
 -- }}}
 
 -- {{{ Rules
