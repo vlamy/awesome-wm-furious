@@ -50,7 +50,7 @@ furious_init_global(globalkeys)
 1. Finally, add furious client keys to rc clientkeys :
 ```lua
 clientkeys = awful.util.table.join(
-    get_clientkeys(),
+    get_furious_clientkeys(),
     ................. 
 -- }}}
 ```
