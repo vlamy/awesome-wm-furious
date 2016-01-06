@@ -31,7 +31,7 @@ myappz["f"] = { info="firefox", cmd="firefox", tag="1", screen=1, match="Firefox
 ```
 
 ### In the rc.lua
-A sample `rc.lua` file is available for demo [here](https://github.com/Vlamy/awesome-wm-furious/blob/master/rc.lua). It is a slicy modified version of the default `rc.lua` file, with minimum requirements to make furious work.
+A sample `rc.lua` file is available for demo [here](https://github.com/Vlamy/awesome-wm-furious/blob/master/rc.lua). It is a slightly modified version of the default `rc.lua` file, with minimum requirements to make furious work.
 
 More precisely, starting from classic `rc.lua`, you have to follow these steps to make furious work :
 
